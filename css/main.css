@@ -1,0 +1,50 @@
+body {
+    width: 80%;
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: rgb(45, 45, 61);
+}
+
+.container-padding50 {
+    padding-top: 50px;
+}
+
+.container-textinput {
+    width: 80%;
+    display: inline-block;
+    padding: 20px;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    outline: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.container-textinput:hover {
+    transform: scale(1.02);
+}
+
+.container-button {
+    width: 10%;
+    display: inline-block;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.container-button:hover {
+    border: solid green;
+    background-color: black;
+    transition: 0.4s;
+}
+
+.container-image {
+    width: 30%;
+    display: block;
+    float: left;
+    margin-right: 3%;
+}
