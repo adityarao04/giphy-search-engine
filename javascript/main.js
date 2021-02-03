@@ -4,9 +4,10 @@ var btn = document.querySelector(".js-go");
 
 btn.addEventListener('click', function() {
 
-    var input = document.querySelector("input").value;
+    var input = document.querySelector(".js-userinput").value;
 
-    pushTODOM(input);
+    var userInput = getUserInput();
+    searchGiphy(userInput);
 
 });
 
@@ -15,27 +16,26 @@ var key = document.querySelector(".js-userinput");
 
 key.addEventListener('keyup', function(e) {
 
-    var input = document.querySelector("input").value;
-    console.log(input);
-    // if the key ENTER is pressed...
     if (e.which === 13) {
-        pushTODOM(input);
-
+        var userInput = getUserInput();
+        searchGiphy(userInput);
     }
-    cleanContainer();
-    getAjax(input);
-
 
 });
+
+function getUserInput() {
+    var inputValue = document.querySelector('.js-userinput').value;
+    return inputValue;
+}
 
 
 
 
 /* 2. do the data stuff with the API */
 
-function getAjax(result) {
+function searchGiphy(searchQuery) {
 
-    var url = "http://api.giphy.com/v1/gifs/search?q=" + result + "&api_key=e5rMy9egY5WWXdSyWovyc21JKfG0UwTJ";
+    var url = "http://api.giphy.com/v1/gifs/search?api_key=UeRrbOrVsnfgAAnGubGcqLSemPHmDI8v&q=" + searchQuery;
 
     // AJAX Request
     var GiphyAJAXCall = new XMLHttpRequest();
@@ -43,22 +43,16 @@ function getAjax(result) {
     GiphyAJAXCall.send();
 
     // Grabing data
-    GiphyAJAXCall.addEventListener('load', function(e) {
+    GiphyAJAXCall.addEventListener('load', function(data) {
 
-        var data = e.target.response;
-        pushTODOM(data);
+        var actualData = data.target.response;
+        pushTODOM(actualData);
+        console.log(actualData);
 
     });
 
 }
 
-function cleanContainer() {
-
-    var container = document.querySelector(".js-container");
-
-    container.innerHTML = "";
-
-}
 
 
 
