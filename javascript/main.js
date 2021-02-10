@@ -34,7 +34,7 @@ function getUserInput() {
 /* 2. do the data stuff with the API */
 
 function searchGiphy(searchQuery) {
-
+    // url
     var url = "https://api.giphy.com/v1/gifs/search?api_key=UeRrbOrVsnfgAAnGubGcqLSemPHmDI8v&q=" + searchQuery;
 
     // AJAX Request
